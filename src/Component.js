@@ -1,6 +1,6 @@
 var React = require('react');
 
-var ExtendedComponent = require('./ExtendedComponent');
+var HotKey = require('react-shortcut');
 
 
 module.exports = React.createClass({
@@ -33,7 +33,7 @@ module.exports = React.createClass({
       return children;
     }
 
-    return React.createElement(ExtendedComponent, {
+    return React.createElement(HotKey, {
       keys: props.keys,
       simultaneous: props.simultaneous,
       onKeysCoincide: this.onKeysCoincide
