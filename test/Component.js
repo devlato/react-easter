@@ -77,17 +77,24 @@ describe('<Component />', function() {
     var wrapper = created.wrapper;
     var page = created.page;
 
-    return new Promise(function(resolve) {
-      expect(page.wrapper().contains(child)).toEqual(false);
+    return new Promise(function(resolveAll) {
+      return new Promise(function(resolve) {
+        expect(page.wrapper().contains(child)).toEqual(false);
 
-      document.dispatchEvent(new KeyboardEvent('keydown', {'key': 't'}));
-      document.dispatchEvent(new KeyboardEvent('keydown', {'key': 'e'}));
-      document.dispatchEvent(new KeyboardEvent('keydown', {'key': 's'}));
-      document.dispatchEvent(new KeyboardEvent('keydown', {'key': 't'}));
+        document.dispatchEvent(new KeyboardEvent('keydown', {'key': 't'}));
+        document.dispatchEvent(new KeyboardEvent('keydown', {'key': 'e'}));
+        document.dispatchEvent(new KeyboardEvent('keydown', {'key': 's'}));
+        document.dispatchEvent(new KeyboardEvent('keydown', {'key': 't'}));
 
-      setTimeout(function() {
-        resolve();
-      }, 500);
+        setTimeout(function() {
+          resolve();
+        }, 500);
+      }).then(function() {
+        expect(page.wrapper().contains(child)).toEqual(true);
+        setTimeout(function() {
+          resolveAll();
+        }, 500);
+      });
     }).then(function() {
       expect(page.wrapper().contains(child)).toEqual(true);
     });
