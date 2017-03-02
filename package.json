@@ -1,6 +1,6 @@
 {
   "name": "react-easter",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Easily add easter eggs to your React app",
   "main": "src/Component.js",
   "scripts": {

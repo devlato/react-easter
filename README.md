@@ -75,7 +75,7 @@ export default class YourComponent extends React.Component {
                  timeout={5000}>
         <div class="overlay">
           <iframe class="sexy-nude-geek-girls-playing-mario"
-                  src="https://www.youtube.com/embed/DLzxrzFCyOs"
+                  src="https://www.youtube.com/embed/DLzxrzFCyOs?autoplay=1"
                   frameborder="0"
                   allowfullscreen />
         </div>
