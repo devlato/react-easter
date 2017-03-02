@@ -41,7 +41,7 @@ function createComponent(props, children) {
 }
 
 
-describe('<Component />', function() {
+describe('<EasterEgg />', function() {
   beforeEach(function() {
     // jest.spyOn(Component.prototype, 'setState');
     jest.spyOn(Component.prototype, 'componentDidMount');

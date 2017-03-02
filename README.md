@@ -12,8 +12,16 @@ Easily add Easter eggs to your React app
 
 ## Installation
 
+With npm:
+
 ```sh
-$ npm install react-easter
+$ npm install --save-dev react-easter
+```
+
+Or with Yarn:
+
+```sh
+$ yarn add react-easter
 ```
 
 
@@ -36,6 +44,9 @@ render() {
   );
 }
 ```
+
+You can add `react-easter` anywhere in your component hierarchy, because it adds a global
+keyboard events listener and doesn't stops any event bubbling.
 
 For example:
 
@@ -75,12 +86,51 @@ export default class YourComponent extends React.Component {
 ```
 
 
+## Props
+
+* `keys` – Just array of string representing each button to be pressed;
+* `simultaneous` – Set this prop if user should press buttons all together;
+* `onKeysCoincide` – Callback function to be called when user pressed the target buttons.
+
+
+## Supported keys
+
+All alphabetic letters and numbers could be passed as is, i.e. letter "a" is just "a".
+
+If you use `simultaneous` mode and you have the `Shift` button in your hotkey combination,
+please set the unmodified buttons.
+
+For example, to have a `Shift+!` hotkey, you should pass `keys={["shift", "1"]}`,
+because "Shift" and "1" pressed together produce "!".
+
+
 ## Test coverage
 
-Library has 100% test coverage:
+Library has ~100% test coverage:
 
 ```sh
-Hey
+$ npm run test:coverage
+
+> react-easter@1.0.0 test:coverage ~/projects/react-easter
+> NODE_ENV=test jest --coverage --no-cache --config .jestrc
+
+ PASS  test/Component.js
+  <EasterEgg />
+    ✓ Should render (16ms)
+    ✓ Should handle keys sequently without timeout (1032ms)
+    ✓ Should handle keys sequently with timeout (1011ms)
+
+--------------|----------|----------|----------|----------|----------------|
+File          |  % Stmts | % Branch |  % Funcs |  % Lines |Uncovered Lines |
+--------------|----------|----------|----------|----------|----------------|
+All files     |      100 |    77.78 |      100 |      100 |                |
+ Component.js |      100 |    77.78 |      100 |      100 |                |
+--------------|----------|----------|----------|----------|----------------|
+Test Suites: 1 passed, 1 total
+Tests:       3 passed, 3 total
+Snapshots:   0 total
+Time:        3.831s
+Ran all test suites.
 ```
 
 
