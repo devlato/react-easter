@@ -1,6 +1,6 @@
 # react-easter
 
-Easilly add Easter eggs to your React app
+Easily add Easter eggs to your React app
 
 
 [![Build Status](https://travis-ci.org/devlato/react-easter.svg?branch=master)](https://travis-ci.org/devlato/react-easter)
