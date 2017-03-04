@@ -104,6 +104,11 @@ For example, to have a `Shift+!` hotkey, you should pass `keys={["shift", "1"]}`
 because "Shift" and "1" pressed together produce "!".
 
 
+## Dependencies
+
+Project uses [react-shortcut](https://www.npmjs.com/package/react-shortcut) to handle keyboard shortcuts.
+
+
 ## Test coverage
 
 Library has ~100% test coverage:

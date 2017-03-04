@@ -1,6 +1,6 @@
 {
   "name": "react-easter",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Easily add easter eggs to your React app",
   "main": "src/Component.js",
   "scripts": {
@@ -56,7 +56,7 @@
     "lodash": "^4.17.4",
     "react": "15.4.2",
     "react-dom": "^15.4.2",
-    "react-shortcut": "^1.0.4"
+    "react-shortcut": "1.0.5"
   },
   "engines": {
     "node": ">= 4",
