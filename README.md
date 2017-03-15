@@ -36,9 +36,10 @@ const EasterEgg = require('react-easter');
 
 render() {
   return (
-    <EasterEgg keys={/* Array of keys to type to trigger the easter egg */}
-               simultaneous={/* Add this prop if keys should be pressed all together */}
-               timeout={/* Duration to show your easter egg, is not passed the easter egg is displayed forever */}>
+    <EasterEgg
+        keys={/* Array of keys to type to trigger the easter egg */}
+        simultaneous={/* Add this prop if keys should be pressed all together */}
+        timeout={/* Duration to show your easter egg, easter egg is displayed forever if prop is not set */}>
       {/* Your easter egg JSX goes here */}
     </EasterEgg>
   );
@@ -90,7 +91,7 @@ export default class YourComponent extends React.Component {
 
 * `keys` – Just array of string representing each button to be pressed;
 * `simultaneous` – Set this prop if user should press buttons all together;
-* `onKeysCoincide` – Callback function to be called when user pressed the target buttons.
+* `timeout` – Amount of time in milliseconds while easter egg is displayed.
 
 
 ## Supported keys
