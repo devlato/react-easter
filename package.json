@@ -54,7 +54,7 @@
   "dependencies": {
     "bluebird": "3.4.7",
     "lodash": "^4.17.4",
-    "react": "15.4.2",
+    "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-shortcut": "1.0.6"
   },
