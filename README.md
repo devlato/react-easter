@@ -39,7 +39,9 @@ render() {
     <EasterEgg
         keys={/* Array of keys to type to trigger the easter egg */}
         simultaneous={/* Add this prop if keys should be pressed all together */}
-        timeout={/* Duration to show your easter egg, easter egg is displayed forever if prop is not set */}>
+        timeout={/* Duration to show your easter egg, easter egg is displayed forever if prop is not set */}
+        onKeysCoincide={/* Callback to call when the code is correctly inserted*/}
+        onTimeout={/* Callback to call when the timer runs out*/}>
       {/* Your easter egg JSX goes here */}
     </EasterEgg>
   );
