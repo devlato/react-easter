@@ -47,18 +47,14 @@ module.exports = React.createClass({
     var onKeysCoincide = props.onKeysCoincide || null;
     var onTimeout = props.onTimeout || null;
 
+    if (onKeysCoincide) onKeysCoincide();
     if (timeout) {
       this.setState({
         timer: setTimeout((function resolveTimeout() {
-          var state = this.state || {};
-
-          clearTimeout(state.timer);
-
-          this.setState({
-            timer: null
-          });
-
+          clearTimeout(this.state.timer);
           if (onTimeout) onTimeout();
+
+          this.setState({ timer: null });
         }).bind(this), timeout)
       });
     } else {
@@ -66,8 +62,6 @@ module.exports = React.createClass({
         timer: Number.POSITIVE_INFINITY
       });
     }
-
-    if (onKeysCoincide) onKeysCoincide();
   },
 
   getDefaultProps: function defaultProps() {
