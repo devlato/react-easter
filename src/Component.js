@@ -2,12 +2,13 @@ var React = require('react');
 
 var HotKey = require('react-shortcut');
 
-
 module.exports = React.createClass({
   propTypes: {
     keys: React.PropTypes.array,
     simultaneous: React.PropTypes.bool,
     timeout: React.PropTypes.number,
+    onKeysCoincide: React.PropTypes.func,
+    onTimeout: React.PropTypes.func,
     children: React.PropTypes.oneOfType([
       React.PropTypes.array,
       React.PropTypes.element
@@ -43,17 +44,17 @@ module.exports = React.createClass({
   onKeysCoincide: function keysCoincide() {
     var props = this.props || {};
     var timeout = props.timeout || null;
+    var onKeysCoincide = props.onKeysCoincide || null;
+    var onTimeout = props.onTimeout || null;
 
+    if (onKeysCoincide) onKeysCoincide();
     if (timeout) {
       this.setState({
         timer: setTimeout((function resolveTimeout() {
-          var state = this.state || {};
+          clearTimeout(this.state.timer);
+          if (onTimeout) onTimeout();
 
-          clearTimeout(state.timer);
-
-          this.setState({
-            timer: null
-          });
+          this.setState({ timer: null });
         }).bind(this), timeout)
       });
     } else {
